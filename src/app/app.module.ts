@@ -10,6 +10,7 @@ import { MiddleComponent } from './main/components/middle/middle.component';
 
 //primeng
 import {RadioButtonModule} from 'primeng/radiobutton';
+import {InputTextModule} from 'primeng/inputtext';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,7 @@ import {RadioButtonModule} from 'primeng/radiobutton';
     MiddleComponent
   ],
   imports: [
-    BrowserModule,RadioButtonModule ,FormsModule
+    BrowserModule,RadioButtonModule ,FormsModule,InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]

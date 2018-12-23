@@ -3,45 +3,51 @@
     <div class="col-md-6"></div>
     <div class="col-md-6">
       <div class="row">
-        Create a new account
+        <h3>Create a new account</h3>
       </div>
       <div class="row">
-        <div class="ui-g-12 ui-md-4">
-          <div class="ui-inputgroup">
-            <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
-            <input type="text" pInputText placeholder="First">
-          </div>
-        </div>
-        <div class="ui-g-12 ui-md-4">
-          <div class="ui-inputgroup">
-            <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
-            <input type="text" pInputText placeholder="Last">
+        <div class="ui-g-12 ui-md-8">
+          <div class="ui-inputgroup row">
+            <div class="col-md-1">
+              <span class="ui-inputgroup-addon"><i class="fa fa-user fa-2x"></i></span></div>
+            <div class="col-md-10">
+              <input type="text" placeholder="First">
+              <input type="text" placeholder="Last" style="margin-left: 10px;"></div>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="ui-g-12 ui-md-4">
-          <div class="ui-inputgroup">
-            <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
-            <input type="text" pInputText placeholder="Email">
+        <div class="ui-g-12 ui-md-8">
+          <div class="ui-inputgroup row">
+            <div class="col-md-1">
+              <span class="ui-inputgroup-addon"><i class="fa fa-at fa-2x"></i></span></div>
+            <div class="col-md-10">
+              <input type="text" pInputText placeholder="Email" style="width:98%;"></div>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="ui-g-12 ui-md-4">
-          <div class="ui-inputgroup">
-            <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
-            <input type="text" pInputText placeholder="Password">
+        <div class="ui-g-12 ui-md-8">
+          <div class="ui-inputgroup row">
+            <div class="col-md-1">
+              <span class="ui-inputgroup-addon"><i class="fa fa-unlock-alt fa-2x"></i></span></div>
+            <div class="col-md-10">
+              <input type="text" pInputText placeholder="Password" style="width:98%;"></div>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="ui-g" style="width:250px;margin-bottom:10px">
+        <div class="ui-g gender" style="width:250px;margin-bottom:10px ">
           <div class="ui-g-12">
-            <p-radioButton name="group1" value="Male" label="Option 1" [(ngModel)]="gender" inputId="opt1"></p-radioButton>
-            <p-radioButton name="group1" value="Female" label="Option 2" [(ngModel)]="gender" inputId="opt2"></p-radioButton>
+            <p-radioButton name="group1" value="Male" label="Male" [(ngModel)]="gender" inputId="Male"></p-radioButton><i
+              class="fa fa-male fa-2x"></i>
+            <p-radioButton name="group1" value="Female" label="Female" [(ngModel)]="gender" inputId="Female"></p-radioButton><i
+              class="fa fa-female fa-2x"></i>
           </div>
         </div>
+      </div>
+      <div class="row">
+        <button class="registerButton">Register</button>
       </div>
     </div>
   </div>
