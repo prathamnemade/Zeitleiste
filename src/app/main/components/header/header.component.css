@@ -1,0 +1,60 @@
+.main-header{
+    height: 90px;
+    /* display: flex;
+    justify-content: space-around; */
+    /* background-image:linear-gradient(#cccccc, #585884 110%); */
+    background: -webkit-linear-gradient(360deg,#e9fbcf 10%,#1d7d8e 360%);     
+    background: linear-gradient(360deg,#e9fbcf 10%,#1d7d8e 360%); 
+}
+.loginDiv{
+    margin-top: 25px;
+}
+.customlabel{
+    top: 14px;
+    left: 32px;
+    font-size: 12px;    
+}
+#float-input1,#float-input2{
+    border:0; 
+    margin: 10px;  
+    margin-top:0px;
+    width: 100%;
+    height: 65%;
+}
+.loginButton{
+    border: 0;
+    background-image: linear-gradient(#4e69a2, #3b5998 50%);
+    color: white;
+    margin-left: 21px;
+    height: 65%;
+    width: 70px;
+}
+
+.ui-float-label label{
+    margin-left: 30px;
+    font-size: 12px;
+    margin-top: -12px;
+}
+.forgotPass{
+    position: relative;
+    font-size: 12px;
+    top: -8px;
+    left: 9px;
+}
+.header{
+    position: absolute;
+    font-size: 50px;
+    left: 150px;
+}
+@media only screen and (max-width: 576px) {
+    .main-header{
+        height: 180px;
+        background: -webkit-linear-gradient(360deg,#e9fbcf 10%,#1d7d8e 360%);     
+        background: linear-gradient(360deg,#e9fbcf 10%,#1d7d8e 360%); 
+    }
+    #float-input1,#float-input2{
+        width:50%}
+        .loginDiv{
+        flex-wrap: inherit;
+    }
+}

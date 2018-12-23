@@ -1,0 +1,6 @@
+.main{
+    background: linear-gradient(to right, rgb(11, 72, 107), rgb(245, 98, 23));
+    /* background: linear-gradient(to right, rgb(44, 62, 80), rgb(253, 116, 108)); */
+    /* height: 100vw; */
+    margin: 10px;
+}
