@@ -1,53 +1,55 @@
-<div class="main">
-  <div class="row">
-    <div class="col-md-6"></div>
-    <div class="col-md-6">
+<div class="row mainPanel">
+  <div class="ui-g-12 col-md-6 ui-lg-6">
+    <!-- leftDIV -->
+  </div>
+  <div class="ui-g-12 col-md-6 ui-lg-6">
+    <div class=" rightRegisterBox">
       <div class="row">
         <h3>Create a new account</h3>
       </div>
+      <br>
       <div class="row">
-        <div class="ui-g-12 ui-md-8">
-          <div class="ui-inputgroup row">
-            <div class="col-md-1">
-              <span class="ui-inputgroup-addon"><i class="fa fa-user fa-2x"></i></span></div>
-            <div class="col-md-10">
-              <input type="text" placeholder="First">
-              <input type="text" placeholder="Last" style="margin-left: 10px;"></div>
-          </div>
+        <div class="ui-g-2 col-md-2 col-lg-1">
+          <span class="ui-inputgroup-addon"><i class="fa fa-user fa-2x"></i></span>
+        </div>
+        <div class="ui-g-5 col-md-5 col-lg-5"><input type="text" pInputText placeholder="First"></div>
+        <div class="ui-g-5 col-md-5 col-lg-5"><input type="text" pInputText placeholder="Last"></div>
+      </div>
+      <div class="row">
+        <div class="ui-g-2 col-md-2 col-lg-1">
+          <span class="ui-inputgroup-addon"><i class="fa fa-at fa-2x"></i></span>
+        </div>
+        <div class="ui-g-10 col-md-10 col-lg-10"> <input type="text" pInputText placeholder="Email"></div>
+      </div>
+      <div class="row">
+        <div class="ui-g-2 col-md-2 col-lg-1">
+          <span class="ui-inputgroup-addon"><i class="fa fa-unlock-alt fa-2x"></i></span>
+        </div>
+        <div class="ui-g-10 col-md-10 col-lg-10"><input type="text" pInputText placeholder="Password"></div>
+      </div>
+      <div class="row">
+        <div class="ui-g-2 col-md-2 col-lg-1">
+          <span class="ui-inputgroup-addon"><i class="fa fa-birthday-cake fa-2x"></i></span>
+        </div>
+        <div class="ui-g-10 col-md-10 col-lg-10">
+          <p-calendar [(ngModel)]="birthday" [yearNavigator]="true" [monthNavigator]="true" yearRange="1900:2030"
+            [showIcon]="false" placeholder="Birthday"></p-calendar>
         </div>
       </div>
       <div class="row">
-        <div class="ui-g-12 ui-md-8">
-          <div class="ui-inputgroup row">
-            <div class="col-md-1">
-              <span class="ui-inputgroup-addon"><i class="fa fa-at fa-2x"></i></span></div>
-            <div class="col-md-10">
-              <input type="text" pInputText placeholder="Email" style="width:98%;"></div>
-          </div>
+        <div class="ui-g-offset-1 col-md-offset-1 col-lg-offset-1 ui-g-3 col-md-3 ui-lg-2">
+          <p-radioButton name="group1" value="Male" label="Male" [(ngModel)]="gender" inputId="Male"></p-radioButton><i
+            class="fa fa-male fa-2x"></i>
+        </div>
+        <div class="ui-g-3 col-md-3 ui-lg-2">
+          <p-radioButton name="group1" value="Female" label="Female" [(ngModel)]="gender" inputId="Female"></p-radioButton><i
+            class="fa fa-female fa-2x"></i>
         </div>
       </div>
       <div class="row">
-        <div class="ui-g-12 ui-md-8">
-          <div class="ui-inputgroup row">
-            <div class="col-md-1">
-              <span class="ui-inputgroup-addon"><i class="fa fa-unlock-alt fa-2x"></i></span></div>
-            <div class="col-md-10">
-              <input type="text" pInputText placeholder="Password" style="width:98%;"></div>
-          </div>
+        <div class="ui-g-offset-1 col-md-offset-1 col-lg-offset-1 ui-g-3 col-md-3 ui-lg-2">
+          <button class="registerButton">Register</button>
         </div>
-      </div>
-      <div class="row">
-        <div class="ui-g gender" style="width:250px;margin-bottom:10px ">
-          <div class="ui-g-12">
-            <p-radioButton name="group1" value="Male" label="Male" [(ngModel)]="gender" inputId="Male"></p-radioButton><i
-              class="fa fa-male fa-2x"></i>
-            <p-radioButton name="group1" value="Female" label="Female" [(ngModel)]="gender" inputId="Female"></p-radioButton><i
-              class="fa fa-female fa-2x"></i>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <button class="registerButton">Register</button>
       </div>
     </div>
   </div>

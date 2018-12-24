@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-middle',
   templateUrl: './middle.component.html',
-  styleUrls: ['./middle.component.css']
+  styleUrls: ['./middle.component.css'],
+  encapsulation: ViewEncapsulation.None,
+
 })
 export class MiddleComponent implements OnInit {
-  gender:boolean;
+  gender: boolean;
+  birthday: Date;
   constructor() { }
 
   ngOnInit() {
