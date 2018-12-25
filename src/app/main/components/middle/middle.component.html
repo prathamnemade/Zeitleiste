@@ -3,54 +3,87 @@
     <!-- leftDIV -->
   </div>
   <div class="ui-g-12 col-md-6 ui-lg-6">
-    <div class=" rightRegisterBox">
-      <div class="row">
-        <h3>Create a new account</h3>
+    <form [formGroup]="userDetailsForm" (ngSubmit)="onSubmitUserDetails(userDetailsForm.value)">
+      <div class=" rightRegisterBox">
+        <div class="row">
+          <h3>Create a new account</h3>
+        </div>
+        <br>
+        <div class="row">
+          <div class="ui-g-1 col-md-1 col-lg-1">
+            <span class="ui-inputgroup-addon"><i class="fa fa-user fa-2x"></i></span>
+          </div>
+          <div class="ui-g-5 col-md-5 col-lg-5"><input type="text" pInputText placeholder="First" formControlName="firstName"
+              required></div>
+          <div class="ui-g-5 col-md-5 col-lg-5"><input type="text" pInputText placeholder="Last" formControlName="lastName"></div>
+          <div class="row">
+            <div *ngFor="let validation of account_validation_messages.firstName">
+              <div class="error-message" *ngIf="userDetailsForm.get('firstName').hasError(validation.type) && (userDetailsForm.get('firstName').dirty || userDetailsForm.get('firstName').touched)">{{validation.message}}</div>
+            </div>
+            <div *ngFor="let validation of account_validation_messages.lastName">
+              <div class="error-message" *ngIf="userDetailsForm.get('lastName').hasError(validation.type) && (userDetailsForm.get('lastName').dirty || userDetailsForm.get('lastName').touched)">{{validation.message}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="ui-g-1 col-md-1 col-lg-1">
+            <span class="ui-inputgroup-addon"><i class="fa fa-at fa-2x"></i></span>
+          </div>
+          <div class="ui-g-10 col-md-10 col-lg-10"> <input type="email" (onblur)="validateUsername()" formControlName="emailID"
+              pInputText placeholder="Email" required></div>
+          <div class="row">
+            <div *ngFor="let validation of account_validation_messages.emailID">
+              <div class="error-message" *ngIf="userDetailsForm.get('emailID').hasError(validation.type) && (userDetailsForm.get('emailID').dirty || userDetailsForm.get('emailID').touched)">{{validation.message}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="ui-g-1 col-md-1 col-lg-1">
+            <span class="ui-inputgroup-addon"><i class="fa fa-unlock-alt fa-2x"></i></span>
+          </div>
+          <div class="ui-g-10 col-md-10 col-lg-10"><input type="password" pInputText placeholder="Password"
+              formControlName="password" required></div>
+          <div class="row">
+            <div *ngFor="let validation of account_validation_messages.password">
+              <div class="error-message" *ngIf="userDetailsForm.get('password').hasError(validation.type) && (userDetailsForm.get('password').dirty || userDetailsForm.get('password').touched)">{{validation.message}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="ui-g-1 col-md-1 col-lg-1">
+            <span class="ui-inputgroup-addon"><i class="fa fa-birthday-cake fa-2x"></i></span>
+          </div>
+          <div class="ui-g-10 col-md-10 col-lg-10">
+            <p-calendar [yearNavigator]="true" [monthNavigator]="true" yearRange="1990:2030" [showIcon]="false"
+              placeholder="Birthday" formControlName="birthday"></p-calendar>
+          </div>
+          <div class="row">
+            <div *ngFor="let validation of account_validation_messages.birthday">
+              <div class="error-message" *ngIf="userDetailsForm.get('birthday').hasError(validation.type) && (userDetailsForm.get('birthday').dirty || userDetailsForm.get('birthday').touched)">{{validation.message}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="ui-g-offset-1 col-md-offset-1 col-lg-offset-1 ui-g-3 col-md-3 ui-lg-2">
+            <p-radioButton name="group1" value="Male" label="Male" inputId="Male" formControlName="gender"></p-radioButton><i
+              class="fa fa-male fa-2x"></i>
+          </div>
+          <div class="ui-g-3 col-md-3 ui-lg-2">
+            <p-radioButton name="group1" value="Female" label="Female" inputId="Female" formControlName="gender"></p-radioButton><i
+              class="fa fa-female fa-2x"></i>
+          </div>
+          <div class="row">
+            <div *ngFor="let validation of account_validation_messages.gender">
+              <div class="error-message" *ngIf="userDetailsForm.get('gender').hasError(validation.type) && (userDetailsForm.get('gender').dirty || userDetailsForm.get('gender').touched)">{{validation.message}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="ui-g-offset-1 col-md-offset-1 col-lg-offset-1 ui-g-3 col-md-3 ui-lg-2">
+            <button class="registerButton" [disabled]="!userDetailsForm.valid" type="submit">Register</button>
+          </div>
+        </div>
       </div>
-      <br>
-      <div class="row">
-        <div class="ui-g-1 col-md-1 col-lg-1">
-          <span class="ui-inputgroup-addon"><i class="fa fa-user fa-2x"></i></span>
-        </div>
-        <div class="ui-g-5 col-md-5 col-lg-5"><input type="text" pInputText placeholder="First"></div>
-        <div class="ui-g-5 col-md-5 col-lg-5"><input type="text" pInputText placeholder="Last"></div>
-      </div>
-      <div class="row">
-        <div class="ui-g-1 col-md-1 col-lg-1">
-          <span class="ui-inputgroup-addon"><i class="fa fa-at fa-2x"></i></span>
-        </div>
-        <div class="ui-g-10 col-md-10 col-lg-10"> <input type="text" pInputText placeholder="Email"></div>
-      </div>
-      <div class="row">
-        <div class="ui-g-1 col-md-1 col-lg-1">
-          <span class="ui-inputgroup-addon"><i class="fa fa-unlock-alt fa-2x"></i></span>
-        </div>
-        <div class="ui-g-10 col-md-10 col-lg-10"><input type="text" pInputText placeholder="Password"></div>
-      </div>
-      <div class="row">
-        <div class="ui-g-1 col-md-1 col-lg-1">
-          <span class="ui-inputgroup-addon"><i class="fa fa-birthday-cake fa-2x"></i></span>
-        </div>
-        <div class="ui-g-10 col-md-10 col-lg-10">
-          <p-calendar [(ngModel)]="birthday" [yearNavigator]="true" [monthNavigator]="true" yearRange="1900:2030"
-            [showIcon]="false" placeholder="Birthday"></p-calendar>
-        </div>
-      </div>
-      <div class="row">
-        <div class="ui-g-offset-1 col-md-offset-1 col-lg-offset-1 ui-g-3 col-md-3 ui-lg-2">
-          <p-radioButton name="group1" value="Male" label="Male" [(ngModel)]="gender" inputId="Male"></p-radioButton><i
-            class="fa fa-male fa-2x"></i>
-        </div>
-        <div class="ui-g-3 col-md-3 ui-lg-2">
-          <p-radioButton name="group1" value="Female" label="Female" [(ngModel)]="gender" inputId="Female"></p-radioButton><i
-            class="fa fa-female fa-2x"></i>
-        </div>
-      </div>
-      <div class="row">
-        <div class="ui-g-offset-1 col-md-offset-1 col-lg-offset-1 ui-g-3 col-md-3 ui-lg-2">
-          <button class="registerButton">Register</button>
-        </div>
-      </div>
-    </div>
+    </form>
   </div>
 </div>
