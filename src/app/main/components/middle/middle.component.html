@@ -3,7 +3,7 @@
     <!-- leftDIV -->
   </div>
   <div class="ui-g-12 col-md-6 ui-lg-6">
-    <form [formGroup]="userDetailsForm" (ngSubmit)="onSubmitUserDetails(userDetailsForm.value)">
+    <form [formGroup]="userDetailsForm" (ngSubmit)="registerService.onSubmitUserDetails(userDetailsForm.value)">
       <div class=" rightRegisterBox">
         <div class="row">
           <h3>Create a new account</h3>
@@ -13,9 +13,9 @@
           <div class="ui-g-1 col-md-1 col-lg-1">
             <span class="ui-inputgroup-addon"><i class="fa fa-user fa-2x"></i></span>
           </div>
-          <div class="ui-g-5 col-md-5 col-lg-5"><input type="text" pInputText placeholder="First" formControlName="firstName"
+          <div class="ui-g-5 col-md-5 col-lg-5"><input type="text" pInputText placeholder="First Name" formControlName="firstName"
               required></div>
-          <div class="ui-g-5 col-md-5 col-lg-5"><input type="text" pInputText placeholder="Last" formControlName="lastName"></div>
+          <div class="ui-g-5 col-md-5 col-lg-5"><input type="text" pInputText placeholder="Last Name" formControlName="lastName"></div>
           <div class="row">
             <div *ngFor="let validation of account_validation_messages.firstName">
               <div class="error-message" *ngIf="userDetailsForm.get('firstName').hasError(validation.type) && (userDetailsForm.get('firstName').dirty || userDetailsForm.get('firstName').touched)">{{validation.message}}</div>
@@ -64,11 +64,11 @@
           </div>
         </div>
         <div class="row">
-          <div class="ui-g-offset-1 col-md-offset-1 col-lg-offset-1 ui-g-3 col-md-3 ui-lg-2">
+          <div class="ui-g-offset-1 col-md-offset-1 col-lg-offset-1 ui-g-2 col-md-3 ui-lg-2">
             <p-radioButton name="group1" value="Male" label="Male" inputId="Male" formControlName="gender"></p-radioButton><i
               class="fa fa-male fa-2x"></i>
           </div>
-          <div class="ui-g-3 col-md-3 ui-lg-2">
+          <div class="ui-g-2 col-md-3 ui-lg-2">
             <p-radioButton name="group1" value="Female" label="Female" inputId="Female" formControlName="gender"></p-radioButton><i
               class="fa fa-female fa-2x"></i>
           </div>

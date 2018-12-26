@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http'; 
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { HeaderComponent } from './main/components/header/header.component';
@@ -13,6 +14,7 @@ import {RadioButtonModule} from 'primeng/radiobutton';
 import {InputTextModule} from 'primeng/inputtext';
 import {CalendarModule} from 'primeng/calendar';
 import { GetValidationMessages } from './main/components/middle/validationMessages';
+import { HttpUrls } from './common/common.constants';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,9 +23,9 @@ import { GetValidationMessages } from './main/components/middle/validationMessag
     MiddleComponent
   ],
   imports: [
-    BrowserModule,RadioButtonModule ,FormsModule,InputTextModule,CalendarModule,BrowserAnimationsModule,ReactiveFormsModule
+    HttpClientModule,BrowserModule,RadioButtonModule ,FormsModule,InputTextModule,CalendarModule,BrowserAnimationsModule,ReactiveFormsModule
   ],
-  providers: [GetValidationMessages],
+  providers: [GetValidationMessages,HttpUrls],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
