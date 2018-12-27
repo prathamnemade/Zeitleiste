@@ -18,6 +18,7 @@ module.exports.register = function (req, res) {
   registration.lastname = req.body.lastName;
   registration.gender = req.body.gender;
   registration.birthday = req.body.birthday;
+  registration.registered="N"
   registration.setPassword(req.body.password);
   registration.save();
   credentials.name = req.body.firstName + " " + req.body.lastName;

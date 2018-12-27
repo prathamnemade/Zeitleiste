@@ -1,4 +1,4 @@
-<div class="row mainPanel">
+<div class="row mainPanel" id="middleSection">
   <div class="ui-g-12 col-md-6 ui-lg-6">
     <!-- leftDIV -->
   </div>
@@ -86,4 +86,24 @@
       </div>
     </form>
   </div>
+</div>
+<!-- dialog box -->
+<div class="popup_window_css mainBox" id="popup_window" *ngIf="registerService.alreadyExists">
+  <table class="popup_window_css">
+    <tbody>
+      <tr class="popup_window_css">
+        <td class="popup_window_css">
+          <div class="popup_window_css_head"><img (click)="registerService.reset()" src="http://www.demo.php-development.ru/popup-window/images/close.gif"
+              alt="" width="9" height="9">Alert</div>
+          <div class="popup_window_css_body">
+            <div style="border: 1px solid #808080; padding: 6px; background: #FFFFFF;font-size: 13px;" [innerHTML]="registerService.alertMessage">
+            </div>
+          </div>
+          <div class="popup_window_css_foot">
+            <button class="customOK" (click)="registerService.reset()">Ok</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

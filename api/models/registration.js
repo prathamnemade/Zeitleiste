@@ -22,6 +22,10 @@ var userSchema = new mongoose.Schema({
     gender: {
         type: String,
         required: true
+    },
+    registered:{
+        type: String,
+        required: true
     }
 });
 userSchema.methods.setPassword = function (password) {

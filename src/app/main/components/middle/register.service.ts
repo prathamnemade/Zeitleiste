@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpUrls } from 'src/app/common/common.constants';
-
+import * as $ from "jquery";
+import { DomSanitizer } from '@angular/platform-browser';
 interface TokenResponse {
   token: string;
 }
@@ -17,10 +18,12 @@ export interface TokenPayload {
 })
 export class RegisterService {
 
-  constructor(private http: HttpClient, private httpUrls: HttpUrls) { }
+  constructor(private http: HttpClient, private httpUrls: HttpUrls,private sanitizer: DomSanitizer) { }
   registrationFormData: TokenPayload;
   private token: string;
   checkForExistence: boolean = false;
+  alreadyExists: boolean = false;
+  alertMessage: any;
   onSubmitUserDetails(formvalue) {
     this.checkUser({ "email": formvalue.emailID }).subscribe((data) => {
       data == 1 ? this.checkForExistence = true : this.checkForExistence = false;
@@ -34,6 +37,9 @@ export class RegisterService {
         });
       } else {
         //already exists
+        this.alertMessage = "<strong>"+formvalue.emailID+"</strong> "+":Already in use!"+"<br>"+"Somebody already has that email address.   Try another? "
+        this.alertMessage=this.sanitizer.bypassSecurityTrustHtml(this.alertMessage)
+        this.triggerAlertBox();
       }
     })
   }
@@ -54,5 +60,13 @@ export class RegisterService {
   private saveToken(token: string): void {
     localStorage.setItem('mean-token', token);
     this.token = token;
+  }
+  triggerAlertBox() {
+    this.alreadyExists = !this.alreadyExists;
+    $('#middleSection,#header').not('#popup_window').css({ "opacity": 0.2 ,"pointer-events":'none'})
+  }
+  reset(){
+    this.alreadyExists=!this.alreadyExists;
+    $('#middleSection,#header').css({ "opacity": 1 ,"pointer-events":'auto'})
   }
 }
