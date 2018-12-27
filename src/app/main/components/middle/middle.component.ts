@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { EmailValidator } from './email.validator';
 import { GetValidationMessages } from './validationMessages';
 import { RegisterService } from './register.service';
 
@@ -29,7 +28,6 @@ export class MiddleComponent implements OnInit {
         Validators.maxLength(25)
       ])),
       'emailID': new FormControl('', Validators.compose([
-        EmailValidator.validUsername,//CHECK FOR EXISTENCE
         Validators.required,
         Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
       ])),

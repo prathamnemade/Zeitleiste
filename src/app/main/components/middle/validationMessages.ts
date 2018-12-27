@@ -11,7 +11,6 @@ export class GetValidationMessages {
             { type: 'maxlength', message: '*LastName cannot be more than 25 characters long' },
         ],
         'emailID': [
-            { type: 'validUsername', message: '*You are already registered with us!Please sign in.' },
             { type: 'required', message: '*EmailID is required' },
             { type: 'pattern', message: '*Incorrect EmailID' },
         ],

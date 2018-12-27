@@ -15,6 +15,6 @@ var ctrlAuth = require('../controllers/authentication');
 // authentication
 router.post('/register', ctrlAuth.register);
 router.post('/checkRegister',ctrlAuth.checkRegister)
-// router.post('/login', ctrlAuth.login);
-
+router.post('/login', ctrlAuth.login);
+router.get('/verifyEmail',ctrlAuth.verifyEmail)
 module.exports = router;

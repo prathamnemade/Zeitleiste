@@ -2,7 +2,7 @@ let emailer = {};
 
 var nodemailer = require('nodemailer');
 emailer.smtpTrans = nodemailer.createTransport({
-    service: 'gmail',
+    service: 'Gmail',
     auth: {
         user: "zeitleiste4u@gmail.com",
         pass: "zeitleiste@123"

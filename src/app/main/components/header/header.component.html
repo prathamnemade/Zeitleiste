@@ -1,24 +1,33 @@
-<div class="row main-header" id="header">
-  <div class="ui-g-12 col-md-6 ui-lg-6">
-    <div class="header customlabel">Zeitleiste</div>
-  </div>
-  <div class="ui-g-12 col-md-6 ui-lg-6 rightDiv">
+<div class="main-header" id="header">
+  <form [formGroup]="loginForm" (ngSubmit)="loginService.onLogin(loginForm.value)">
     <div class="row">
-      <div class="ui-g-4 col-md-4 ui-lg-4 ui-g-offset-1">
-        <span class="ui-float-label">
-          <input id="float-input1" type="text" size="30" pInputText>
-          <label for="float-input1">Username</label>
-        </span>
+      <div class="ui-g-12 col-md-6 ui-lg-6">
+        <div class="header customlabel">Zeitleiste</div>
       </div>
-      <div class="ui-g-4 col-md-4 ui-lg-4">
-        <span class="ui-float-label">
-          <input id="float-input2" type="password" size="30" pInputText>
-          <label for="float-input2">Password</label>
-        </span>
-      </div>
-      <div class="ui-g-2 col-md-2 ui-lg-2">
-        <button class="loginButton">Login</button>
+      <div class="ui-g-12 col-md-6 ui-lg-6 rightDiv">
+        <div class="row">
+          <div class="ui-g-4 col-md-4 ui-lg-4 ui-g-offset-1">
+            <span class="ui-float-label">
+              <input id="float-input1" formControlName="email" type="text" size="30" pInputText required>
+              <label for="float-input1" >Username</label>
+            </span>
+            <div class="row">
+                <div *ngFor="let validation of account_validation_messages.emailID">
+                  <div class="error-message-username" *ngIf="loginForm.get('email').hasError(validation.type) && (loginForm.get('email').dirty || loginForm.get('email').touched)">{{validation.message}}</div>
+                </div>
+              </div>
+          </div>
+          <div class="ui-g-4 col-md-4 ui-lg-4">
+            <span class="ui-float-label">
+              <input id="float-input2" formControlName="password" type="password" size="30" pInputText required>
+              <label for="float-input2" >Password</label>
+            </span>
+          </div>
+          <div class="ui-g-2 col-md-2 ui-lg-2">
+            <button class="loginButton">Login</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </form>
 </div>
