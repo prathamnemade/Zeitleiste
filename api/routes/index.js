@@ -8,13 +8,14 @@ var auth = jwt({
 
 // var ctrlProfile = require('../controllers/profile');
 var ctrlAuth = require('../controllers/authentication');
-
+var verifyEmail=require('../controllers/verifyEmail');
+var registration=require('../controllers/registration');
 // profile
 // router.get('/profile', auth, ctrlProfile.profileRead);
 
 // authentication
-router.post('/register', ctrlAuth.register);
-router.post('/checkRegister',ctrlAuth.checkRegister)
+router.get('/verify', verifyEmail.verifyEmail);
+router.post('/register', registration.register);
+router.post('/checkRegister', ctrlAuth.checkRegister)
 router.post('/login', ctrlAuth.login);
-router.get('/verifyEmail',ctrlAuth.verifyEmail)
 module.exports = router;

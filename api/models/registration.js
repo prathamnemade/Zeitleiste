@@ -26,6 +26,10 @@ var userSchema = new mongoose.Schema({
     registered:{
         type: String,
         required: true
+    },
+    registrationID:{
+        type:String,
+        required: true
     }
 });
 userSchema.methods.setPassword = function (password) {

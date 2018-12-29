@@ -24,7 +24,7 @@
             </span>
           </div>
           <div class="ui-g-2 col-md-2 ui-lg-2">
-            <button class="loginButton">Login</button>
+            <button class="loginButton" [disabled]="!loginForm.valid"  type="submit">Login</button>
           </div>
         </div>
       </div>
