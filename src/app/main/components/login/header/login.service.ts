@@ -19,7 +19,8 @@ export class LoginService {
             (data) => {
                 this.localDataService.mean_token = data.token
                 localStorage.setItem('mean_token', data.token)
-                this.router.navigateByUrl('/dashboard', { skipLocationChange: true });
+                this.router.navigateByUrl('/dashboard', { skipLocationChange:false});
+
             },
             (err) => {
                 this.errorMessage = err.error.message;

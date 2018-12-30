@@ -19,6 +19,7 @@ import { LocalDataService } from './common/localStorage.service';
 import { AppRoutingModule } from './app.routing.module';
 import { LoginComponent } from './main/components/login/login.component';
 import { DashboardComponent } from './main/components/dashboard/dashboard.component';
+import { AuthGuard } from './common/auth-guard.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,7 @@ import { DashboardComponent } from './main/components/dashboard/dashboard.compon
   imports: [
     AppRoutingModule,HttpClientModule, BrowserModule, RadioButtonModule, FormsModule, InputTextModule, CalendarModule, BrowserAnimationsModule, ReactiveFormsModule
   ],
-  providers: [GetValidationMessages, HttpUrls, LocalDataService],
+  providers: [GetValidationMessages, HttpUrls, LocalDataService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
