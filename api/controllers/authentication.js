@@ -3,9 +3,7 @@ var mongoose = require('mongoose');
 var Credentials = mongoose.model('Credentials');
 
 module.exports.checkRegister = function (req, res) {
-  console.log("user ", req.body);
   Credentials.findOne({ 'email': req.body.email }).count().exec(function (err, data) {
-    console.log("zzz", data)
     res.json(data);
   })
 }
@@ -17,7 +15,6 @@ module.exports.login = function (req, res) {
       res.status(404).json(err);
       return;
     }
-
     // If a credentials is found
     if (credentials) {
       token = credentials.generateJwt();

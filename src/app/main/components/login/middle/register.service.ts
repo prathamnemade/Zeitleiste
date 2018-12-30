@@ -47,6 +47,7 @@ export class RegisterService {
   getRegisterLink(registrationData: TokenPayload): Observable<any> {
     return this.http.post(`${this.httpUrls.registerURL}`, registrationData).pipe(
       map((data: TokenResponse) => {
+        //to use for other login ways
         if (data.token) {
           this.saveToken(data.token);
         }

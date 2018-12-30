@@ -1,0 +1,59 @@
+<div class="main-header" id="header">
+  <form [formGroup]="loginForm" (ngSubmit)="loginService.onLogin(loginForm.value)">
+    <div class="row">
+      <div class="ui-g-12 col-md-6 ui-lg-6">
+        <div class="header customlabel">Zeitleiste</div>
+      </div>
+      <div class="ui-g-12 col-md-6 ui-lg-6 rightDiv">
+        <div class="row">
+          <div class="ui-g-4 col-md-4 ui-lg-4 ui-g-offset-1">
+            <span class="ui-float-label">
+              <input id="float-input1" formControlName="email" type="text" size="30" pInputText required>
+              <label for="float-input1">Username</label>
+            </span>
+            <div class="row">
+              <div *ngFor="let validation of account_validation_messages.emailID">
+                <div class="error-message-username" *ngIf="loginForm.get('email').hasError(validation.type) && (loginForm.get('email').dirty || loginForm.get('email').touched)">{{validation.message}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="ui-g-4 col-md-4 ui-lg-4">
+            <span class="ui-float-label">
+              <input id="float-input2" formControlName="password" type="password" size="30" pInputText required>
+              <label for="float-input2">Password</label>
+            </span>
+          </div>
+          <div class="ui-g-2 col-md-2 ui-lg-2">
+            <button class="loginButton" [disabled]="!loginForm.valid" type="submit">Login</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<!-- dialog box -->
+<div class="popup_window_css mainBox" id="popup_window" *ngIf="loginService.errorMessageTrigger">
+  <table class="popup_window_css">
+    <tbody>
+      <tr class="popup_window_css">
+        <td class="popup_window_css">
+          <div class="popup_window_css_head"><img (click)="loginService.reset()" src="http://www.demo.php-development.ru/popup-window/images/close.gif"
+              alt="" width="9" height="9">Alert</div>
+          <div class="popup_window_css_body">
+            <div style="border: 1px solid #808080; padding: 6px; background: #FFFFFF;font-size: 13px;">
+              <strong>{{loginService.errorMessage}}</strong>
+              <br>
+              We couldn't find an account with that email address. If you've forgotten your password, please click on
+              <strong>Forgot Password</strong>.
+            </div>
+          </div>
+          <div class="popup_window_css_foot">
+            <button class="customOK" (click)="loginService.reset()">Ok</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
