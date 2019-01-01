@@ -37,7 +37,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
-
+const port = process.env.PORT || 5000;
+app.set('port', port);
 // [SH] Initialise Passport before using the route middleware
 app.use(passport.initialize());
 
@@ -84,5 +85,5 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.listen(5000, () => console.log(`Example app listening on port ${5000}!`))
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 module.exports = app;
