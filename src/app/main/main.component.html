@@ -1,1 +1,46 @@
 <router-outlet></router-outlet>
+<!-- dialog box gettingidle-->
+<div class="popup_window_css mainBox" id="popup_window" *ngIf="localDataService.idleStage">
+    <table class="popup_window_css">
+        <tbody>
+            <tr class="popup_window_css">
+                <td class="popup_window_css">
+                    <div class="popup_window_css_head"><img (click)="localDataService.idleStage=!localDataService.idleStage"
+                            src="http://www.demo.php-development.ru/popup-window/images/close.gif" alt="" width="9"
+                            height="9">Alert</div>
+                    <div class="popup_window_css_body">
+                        <div style="border: 1px solid #808080; padding: 6px; background: #FFFFFF;font-size: 13px;">{{localDataService.idleStageMessage}}
+                            <br>
+                            <strong>You will time out in  {{localDataService.sessionTimeCount}} seconds!</strong>
+                        </div>
+                    </div>
+                    <div class="popup_window_css_foot">
+                        <button class="customOK" (click)="localDataService.idleStage=!localDataService.idleStage">Ok</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<!-- dialog box Timedout -->
+<div class="popup_window_css mainBox" id="popup_window" *ngIf="localDataService.sessionTimedout">
+    <table class="popup_window_css">
+        <tbody>
+            <tr class="popup_window_css">
+                <td class="popup_window_css">
+                    <div class="popup_window_css_head"><img (click)="localDataService.sessionTimedout=!localDataService.sessionTimedout"
+                            src="http://www.demo.php-development.ru/popup-window/images/close.gif" alt="" width="9"
+                            height="9">Alert</div>
+                    <div class="popup_window_css_body">
+                        <div style="border: 1px solid #808080; padding: 6px; background: #FFFFFF;font-size: 13px;"
+                            [innerHTML]="localDataService.sessionTimedoutMessage">
+                        </div>
+                    </div>
+                    <div class="popup_window_css_foot">
+                        <button class="customOK" (click)="localDataService.sessionTimedout=!localDataService.sessionTimedout">Ok</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

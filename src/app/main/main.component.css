@@ -1,0 +1,51 @@
+/* dialog box */
+.mainBox{
+    display: inline-table !important;
+    width: 30%;
+    z-index: 10006;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+div.popup_window_css { position: absolute; display: none; }
+div.popup_window_css table.popup_window_css {  margin: 0px; border-collapse: collapse;width: 100%; }
+div.popup_window_css    td.popup_window_css { padding: 0px; }
+div.popup_window_css div.popup_window_css_head { border: 1px solid black; border-width: 1px 1px 1px 1px; padding: 2px 6px 2px 6px; background: #802000; }
+div.popup_window_css div.popup_window_css_body { border: 1px solid black; border-width: 0px 1px 0px 1px; padding: 6px 6px 0px 6px; background: #DBDBBA; }
+div.popup_window_css div.popup_window_css_foot { border: 1px solid black; border-width: 0px 1px 1px 1px; padding: 0px 0px 0px 0px; background: #DBDBBA; }
+div.popup_window_css div.popup_window_css_head
+{
+    font: 900 14px "Trebuchet MS", Sans-Serif;
+   color: #FFFFFF;
+  cursor: default;
+}
+div.popup_window_css div.popup_window_css_head img
+{
+   float: right;
+  margin: 4px 0px 0px 1px;
+  cursor: pointer;
+}
+div.popup_window_css div.popup_window_css_foot
+{
+  height: auto; text-align: right;
+}
+div.popup_window_css div.popup_window_css_foot a,
+div.popup_window_css div.popup_window_css_foot a img
+{
+  display: inline-block;
+    width: 6px;
+   height: 6px;
+   border: none;
+}
+.customOK{
+    border: 0;
+    margin: 5px;
+    width: 65px;
+    height: 20px;
+    background: #802000;
+    font: 900 14px "Trebuchet MS", Sans-Serif;
+    color: #FFFFFF;
+    cursor: default;
+}
