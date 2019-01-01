@@ -8,6 +8,7 @@ export class LocalDataService {
     idleStage:boolean=false;
     sessionTimedout:boolean=false;
     sessionTimeCount:number;
+    idleStageImage:boolean=false;
 
     
 

@@ -14,7 +14,6 @@ export class SessionTimeout {
     lastPing?: Date = null;
     timeout = 5000;
     constructor(private _router: Router, private localDataService: LocalDataService) {
-        console.warn("this is from sessiontimeout");
     }
     sessiontimeout(idle: Idle, keepalive: Keepalive) {
         idle.setIdle(5);
@@ -22,6 +21,7 @@ export class SessionTimeout {
         idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
         idle.onIdleEnd.subscribe(() => { this.idleState = 'No longer idle.'; });
         idle.onTimeout.subscribe(() => {
+            this.localDataService.idleStageImage = false;
             this.localDataService.idleStage = false;
             this.localDataService.sessionTimedout = true;
             this.localDataService.mean_token = "";
@@ -33,13 +33,18 @@ export class SessionTimeout {
             this.idleState = 'You\'ve gone idle!';
         });
         idle.onTimeoutWarning.subscribe((countdown) => {
+            setTimeout(() => {
+                this.localDataService.idleStageImage = !this.localDataService.idleStageImage;
+            }, countdown);
             var that = this
             document.addEventListener("mousemove", function (event) {
                 that.localDataService.idleStage = false;
+                that.localDataService.idleStageImage = false;
             });
             this.idleState = 'You will time out in ' + countdown + ' seconds!'; this.localDataService.sessionTimeCount = countdown;
             if (countdown == 5) {
                 this.localDataService.idleStage = true;
+                this.localDataService.idleStageImage = true;
             }
         });
         // sets the ping interval to 15 seconds
