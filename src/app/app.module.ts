@@ -20,6 +20,8 @@ import { AppRoutingModule } from './app.routing.module';
 import { LoginComponent } from './main/components/login/login.component';
 import { DashboardComponent } from './main/components/dashboard/dashboard.component';
 import { AuthGuard } from './common/auth-guard.service';
+import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
+import { SessionTimeout } from './common/sessionTimeout';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,9 +32,9 @@ import { AuthGuard } from './common/auth-guard.service';
     DashboardComponent
   ],
   imports: [
-    AppRoutingModule,HttpClientModule, BrowserModule, RadioButtonModule, FormsModule, InputTextModule, CalendarModule, BrowserAnimationsModule, ReactiveFormsModule
+    NgIdleKeepaliveModule .forRoot(),AppRoutingModule,HttpClientModule, BrowserModule, RadioButtonModule, FormsModule, InputTextModule, CalendarModule, BrowserAnimationsModule, ReactiveFormsModule
   ],
-  providers: [GetValidationMessages, HttpUrls, LocalDataService,AuthGuard],
+  providers: [GetValidationMessages, HttpUrls, LocalDataService,AuthGuard,SessionTimeout],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

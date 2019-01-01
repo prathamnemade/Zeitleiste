@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionTimeout } from 'src/app/common/sessionTimeout';
+import { Idle } from '@ng-idle/core';
+import { Keepalive } from '@ng-idle/keepalive';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,10 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() {
-      console.warn("construct");
-      
-   }
+  constructor(private sessionTimeout: SessionTimeout, private idle: Idle, private keepalive: Keepalive) {
+    console.warn("construct");
+    this.sessionTimeout.sessiontimeout(idle, keepalive)
+
+  }
 
   ngOnInit() {
   }
