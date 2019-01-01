@@ -1,4 +1,4 @@
-{{localDataService.idleStageImage}}<router-outlet></router-outlet>
+<router-outlet></router-outlet>
 <!-- dialog box gettingidle-->
 <div class="popup_window_css mainBox" id="popup_window" *ngIf="localDataService.idleStage">
     <table class="popup_window_css">
@@ -13,9 +13,6 @@
                             This page will expire unless a response is received within 5seconds.<br>
                             Click <strong>OK</strong> or drag your mouse to prevent expiration.<br>
                             <strong>You will time out in {{localDataService.sessionTimeCount}} seconds!</strong>
-                            <div style="text-align: center;" *ngIf="localDataService.idleStageImage">
-                                <img src="https://img.icons8.com/color/48/000000/no-entry.png" alt="" width="50" height="50">
-                            </div>
                         </div>
                     </div>
                     <div class="popup_window_css_foot">
@@ -25,6 +22,9 @@
             </tr>
         </tbody>
     </table>
+</div>
+<div style="text-align: center;"  class="blink-image" *ngIf="localDataService.idleStageImage">
+    <img src="https://img.icons8.com/color/48/000000/no-entry.png" alt="" width="50" height="50">
 </div>
 <!-- dialog box Timedout -->
 <div class="popup_window_css mainBox" id="popup_window" *ngIf="localDataService.sessionTimedout">

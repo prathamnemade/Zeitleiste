@@ -33,9 +33,6 @@ export class SessionTimeout {
             this.idleState = 'You\'ve gone idle!';
         });
         idle.onTimeoutWarning.subscribe((countdown) => {
-            setTimeout(() => {
-                this.localDataService.idleStageImage = !this.localDataService.idleStageImage;
-            }, countdown);
             var that = this
             document.addEventListener("mousemove", function (event) {
                 that.localDataService.idleStage = false;
