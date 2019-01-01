@@ -9,8 +9,9 @@
                             src="http://www.demo.php-development.ru/popup-window/images/close.gif" alt="" width="9"
                             height="9">Alert</div>
                     <div class="popup_window_css_body">
-                        <div style="border: 1px solid #808080; padding: 6px; background: #FFFFFF;font-size: 13px;">{{localDataService.idleStageMessage}}
-                            <br>
+                        <div style="border: 1px solid #808080; padding: 6px; background: #FFFFFF;font-size: 13px;">
+                            This page will expire unless a response is received within 5seconds .<br>
+                            Click OK or drag your mouse to prevent expiration.<br>
                             <strong>You will time out in  {{localDataService.sessionTimeCount}} seconds!</strong>
                         </div>
                     </div>
@@ -32,8 +33,10 @@
                             src="http://www.demo.php-development.ru/popup-window/images/close.gif" alt="" width="9"
                             height="9">Alert</div>
                     <div class="popup_window_css_body">
-                        <div style="border: 1px solid #808080; padding: 6px; background: #FFFFFF;font-size: 13px;"
-                            [innerHTML]="localDataService.sessionTimedoutMessage">
+                        <div style="border: 1px solid #808080; padding: 6px; background: #FFFFFF;font-size: 13px;">
+                            You're being timed out due to inactivity.<br>
+                            You are logged off successfully .Please login again to continue.<br>
+                            Click OK to continue.<br>
                         </div>
                     </div>
                     <div class="popup_window_css_foot">

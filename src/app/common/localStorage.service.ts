@@ -8,8 +8,7 @@ export class LocalDataService {
     idleStage:boolean=false;
     sessionTimedout:boolean=false;
     sessionTimeCount:number;
-    idleStageMessage:string="You There????";
-    sessionTimedoutMessage:string="Session Timed out !!Please login again.";
+
     
 
 }

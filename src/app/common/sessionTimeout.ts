@@ -22,7 +22,7 @@ export class SessionTimeout {
         idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
         idle.onIdleEnd.subscribe(() => { this.idleState = 'No longer idle.'; });
         idle.onTimeout.subscribe(() => {
-            this.localDataService.idleStage = !this.localDataService.idleStage;
+            this.localDataService.idleStage = false;
             this.localDataService.sessionTimedout = true;
             this.localDataService.mean_token = "";
             this._router.navigate(['/login']);
@@ -33,11 +33,13 @@ export class SessionTimeout {
             this.idleState = 'You\'ve gone idle!';
         });
         idle.onTimeoutWarning.subscribe((countdown) => {
+            var that = this
+            document.addEventListener("mousemove", function (event) {
+                that.localDataService.idleStage = false;
+            });
             this.idleState = 'You will time out in ' + countdown + ' seconds!'; this.localDataService.sessionTimeCount = countdown;
             if (countdown == 5) {
-                this.localDataService.idleStage = !this.localDataService.idleStage;
-            } else {
-                this.localDataService.idleStage = !this.localDataService.idleStage;
+                this.localDataService.idleStage = true;
             }
         });
         // sets the ping interval to 15 seconds
