@@ -1,0 +1,23 @@
+.middle{
+    margin: 0;
+}
+.dashboard-header{
+    margin: 0;
+    height: 40px;
+    border: 1px solid;
+}
+.dashboard-left{
+    padding: 0;
+    height: 100vw;
+    border: 1px solid;
+}
+.dashboard-posts{
+    padding: 0;
+    height: 100vw;
+    border: 1px solid;
+}
+.dashboard-right{
+    padding: 0;
+    height: 100vw;
+    border: 1px solid;
+}

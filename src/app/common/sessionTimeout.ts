@@ -16,7 +16,7 @@ export class SessionTimeout {
     constructor(private _router: Router, private localDataService: LocalDataService) {
     }
     sessiontimeout(idle: Idle, keepalive: Keepalive) {
-        idle.setIdle(5);
+        idle.setIdle(600);
         idle.setTimeout(5);
         idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
         idle.onIdleEnd.subscribe(() => { this.idleState = 'No longer idle.'; });
@@ -24,6 +24,7 @@ export class SessionTimeout {
             this.localDataService.idleStageImage = false;
             this.localDataService.idleStage = false;
             this.localDataService.sessionTimedout = true;
+            localStorage.removeItem('mean_token')
             this.localDataService.mean_token = "";
             this._router.navigate(['/login']);
             this.idleState = 'Timed out!';
