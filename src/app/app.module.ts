@@ -11,6 +11,7 @@ import { MiddleComponent } from './main/components/login/middle/middle.component
 
 //primeng
 import { RadioButtonModule } from 'primeng/radiobutton';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
 import { GetValidationMessages } from './main/components/login/middle/validationMessages';
@@ -26,6 +27,7 @@ import { DashboardHeaderComponent } from './main/components/dashboard/dashboardH
 import { DashboardLeftComponent } from './main/components/dashboard/dashboardLeft/dashboardLeft.component';
 import { DashboardPostsComponent } from './main/components/dashboard/dashboardPosts/dashboardPosts.component';
 import { DashboardRightComponent } from './main/components/dashboard/dashboardRight/dashboardRight.component';
+import { PostBoxComponent } from './main/components/dashboard/dashboardPosts/post-box/post-box.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,10 +39,11 @@ import { DashboardRightComponent } from './main/components/dashboard/dashboardRi
     DashboardRightComponent,
     DashboardLeftComponent,
     DashboardPostsComponent,
-    DashboardHeaderComponent
+    DashboardHeaderComponent,
+    PostBoxComponent
   ],
   imports: [
-    NgIdleKeepaliveModule.forRoot(), AppRoutingModule, HttpClientModule, BrowserModule, RadioButtonModule, FormsModule, InputTextModule, CalendarModule, BrowserAnimationsModule, ReactiveFormsModule
+    NgIdleKeepaliveModule.forRoot(), AppRoutingModule, HttpClientModule, BrowserModule, RadioButtonModule,InputTextareaModule, FormsModule, InputTextModule, CalendarModule, BrowserAnimationsModule, ReactiveFormsModule
   ],
   providers: [GetValidationMessages, HttpUrls, LocalDataService, AuthGuard, SessionTimeout],
   bootstrap: [AppComponent]
