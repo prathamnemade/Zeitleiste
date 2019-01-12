@@ -30,6 +30,10 @@ var userSchema = new mongoose.Schema({
     registrationID:{
         type:String,
         required: true
+    },
+    avatarExists:{
+        type:Boolean,
+        required:true
     }
 });
 userSchema.methods.setPassword = function (password) {

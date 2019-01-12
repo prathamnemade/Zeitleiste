@@ -55,6 +55,7 @@ module.exports.register = function (req, res) {
     registration.birthday = req.body.birthday;
     registration.registered = 'N';
     registration.registrationID = rand;
+    registration.avatarExists=false;
     registration.setPassword(req.body.password);
     registration.save();
     credentials.name = req.body.firstName + " " + req.body.lastName;

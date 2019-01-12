@@ -13,13 +13,23 @@ import { Router } from '@angular/router';
 export class LoginService {
     errorMessage: String;
     errorMessageTrigger: boolean = false;
-    constructor(private router: Router,private localDataService: LocalDataService, private http: HttpClient, private httpUrls: HttpUrls, private sanitizer: DomSanitizer) { }
+    constructor(private router: Router, private localDataService: LocalDataService, private http: HttpClient, private httpUrls: HttpUrls, private sanitizer: DomSanitizer) { }
     onLogin(formData) {
         this.checkUser(formData).subscribe(
             (data) => {
                 this.localDataService.mean_token = data.token
                 localStorage.setItem('mean_token', data.token)
-                this.router.navigateByUrl('/dashboard', { skipLocationChange:false});
+                localStorage.setItem('emailId', formData.email)
+                this.checkAvatarExists({ "emailId": formData.email }).subscribe((data) => {
+                    console.warn("checkavatarexists", data);
+                    if (data.avatarExists) {
+                        this.router.navigateByUrl('/dashboard', { skipLocationChange: false });
+
+                    } else {
+                        this.router.navigateByUrl('/setAvatar', { skipLocationChange: false });
+
+                    }
+                })
 
             },
             (err) => {
@@ -29,6 +39,9 @@ export class LoginService {
     }
     checkUser(data): Observable<any> {
         return this.http.post(`${this.httpUrls.loginURL}`, data).pipe(map(data => data))
+    }
+    checkAvatarExists(data): Observable<any> {
+        return this.http.post(`${this.httpUrls.avatarExists}`, data).pipe(map(data => data))
     }
     triggerErrorBox() {
         this.errorMessageTrigger = !this.errorMessageTrigger;

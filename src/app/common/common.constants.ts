@@ -10,4 +10,8 @@ export class HttpUrls {
     checkRegisterURL = `${environment.url}/zeitleiste/checkRegister`;
     //login urls
     loginURL=`${environment.url}/zeitleiste/login`;
+    //avatar urls
+    avatarExists=`${environment.url}/zeitleiste/avatarExists`;
+    avatarData=`${environment.url}/zeitleiste/avatarData`;
+
 }
